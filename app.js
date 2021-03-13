@@ -15,8 +15,8 @@ client.on('ready', async () => {
   morningRule.tz = 'Asia/Kolkata';
 
   const nightRule = new schedule.RecurrenceRule();
-  morningRule.hour = 23;
-  morningRule.tz = 'Asia/Kolkata';
+  nightRule.hour = 23;
+  nightRule.tz = 'Asia/Kolkata';
 
   schedule.scheduleJob(morningRule, async function () {
     try {
