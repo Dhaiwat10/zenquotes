@@ -10,11 +10,11 @@ const client = new Discord.Client();
 client.on('ready', async () => {
   console.log('Bot is ready');
 
-  const morningRule = new schedule.RecurrencemorningRule();
+  const morningRule = new schedule.RecurrenceRule();
   morningRule.hour = 06;
   morningRule.tz = 'Asia/Kolkata';
 
-  const nightRule = new schedule.RecurrencemorningRule();
+  const nightRule = new schedule.RecurrenceRule();
   morningRule.hour = 23;
   morningRule.tz = 'Asia/Kolkata';
 
