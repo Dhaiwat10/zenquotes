@@ -13,6 +13,11 @@ const unsplashToken = process.env.UNSPLASH_ACCESS_KEY;
 client.on('ready', async () => {
   console.log('Bot is ready');
 
+  client.user.setPresence({
+    activity: { name: '!quote', type: 'LISTENING' },
+    status: 'online',
+  });
+
   const morningRule = new schedule.RecurrenceRule();
   morningRule.hour = 06;
   morningRule.minute = 0;
