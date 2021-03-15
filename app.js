@@ -66,3 +66,22 @@ client.on('message', async (msg) => {
     }
   }
 });
+
+client.on('guildCreate', (guild) => {
+  let channelID;
+  let channels = guild.channels.cache;
+
+  for (let key in channels) {
+    let c = channels[key];
+    if (c[1].type === 'text') {
+      channelID = c[0];
+      break;
+    }
+  }
+
+  let channel = guild.channels.cache.get(guild.systemChannelID || channelID);
+
+  channel.send('Thanks for inviting me onto your server!');
+  channel.send('You can type **!quote** to get a random quote.');
+  channel.send('Carpe diem! :sparkles:');
+});
