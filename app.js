@@ -25,7 +25,7 @@ client.on('ready', async () => {
 
   const nightRule = new schedule.RecurrenceRule();
   nightRule.hour = 23;
-  nightRule.minute = 60 * Math.random();
+  nightRule.minute = 00;
   nightRule.tz = 'Asia/Kolkata';
 
   schedule.scheduleJob(morningRule, async function () {
@@ -56,6 +56,8 @@ client.on('ready', async () => {
 client.login(process.env.BOT_TOKEN);
 
 client.on('message', async (msg) => {
+  console.log('Message');
+
   if (msg.content === '!quote') {
     const quote = await getRandomQuote();
 
