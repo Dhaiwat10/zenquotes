@@ -25,13 +25,13 @@ client.on('ready', async () => {
 
   const nightRule = new schedule.RecurrenceRule();
   nightRule.hour = 23;
-  nightRule.minute = 39;
+  nightRule.minute = 60 * Math.random();
   nightRule.tz = 'Asia/Kolkata';
 
   schedule.scheduleJob(morningRule, async function () {
     try {
       const quote = await getRandomQuote();
-      const gm = ':sunrise_over_mountains:  **Good Morning!**';
+      const gm = ':sunrise_over_mountains:';
 
       sendMessageToAllGuilds(client, gm);
       sendMessageToAllGuilds(client, quote);
@@ -43,7 +43,7 @@ client.on('ready', async () => {
   schedule.scheduleJob(nightRule, async function () {
     try {
       const quote = await getRandomQuote();
-      const gn = ':night_with_stars:  **Sweet Dreams**';
+      const gn = ':night_with_stars:';
 
       sendMessageToAllGuilds(client, quote);
       sendMessageToAllGuilds(client, gn);
