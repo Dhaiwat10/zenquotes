@@ -32,7 +32,7 @@ export const getWelcomeMessage = async () => {
     .setDescription(
       'You can type **!quote** to get a random quote. Carpe diem! :sparkles:'
     )
-    .setFooter('zen quotes', 'attachment://zen.png');
+    .setFooter('zen quotes', 'attachment://zen64.png');
 
   return { files: [zenLogo], embed: embed };
 };

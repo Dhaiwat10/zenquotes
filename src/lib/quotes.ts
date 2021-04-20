@@ -17,7 +17,7 @@ export const getEmbed = async (
       .setTitle(`❝ ${quote}❞`)
       // .setURL('https://discord.js.org/')
       .setDescription(`— ${author}`)
-      .setFooter('zen quotes', 'attachment://zen.png');
+      .setFooter('zen quotes', 'attachment://zen64.png');
 
     // await msg.channel.send({ files: [zenLogo], embed: embed });
 
