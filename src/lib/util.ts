@@ -1,7 +1,7 @@
 import Discord, { Client, MessageAttachment } from 'discord.js';
 import { EmbedResult } from './types';
 
-const zenLogo = new MessageAttachment('./zen.png');
+const zenLogo = new MessageAttachment('./zen64.png');
 
 export const sendMessageToAllGuilds = (
   client: Client,

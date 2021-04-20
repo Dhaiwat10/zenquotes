@@ -4,7 +4,7 @@ import { EmbedResult, Quote } from './types';
 
 const apiUrl = 'https://zenquotes.io/api/random';
 
-const zenLogo = new MessageAttachment('./zen.png');
+const zenLogo = new MessageAttachment('./zen64.png');
 
 export const getEmbed = async (
   msg?: Message
