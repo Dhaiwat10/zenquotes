@@ -1,15 +1,18 @@
-const { default: axios } = require('axios');
-const Discord = require('discord.js');
+import { Message, MessageAttachment, MessageEmbed } from 'discord.js';
+import axios from 'axios';
+import { EmbedResult, Quote } from './types';
 
 const apiUrl = 'https://zenquotes.io/api/random';
 
-const zenLogo = new Discord.MessageAttachment('./zen.png');
+const zenLogo = new MessageAttachment('./zen.png');
 
-module.exports.getEmbed = async (msg) => {
+export const getEmbed = async (
+  msg?: Message
+): Promise<null | EmbedResult> => {
   try {
     const { quote, author } = await getRandomQuote();
 
-    const embed = new Discord.MessageEmbed()
+    const embed = new MessageEmbed()
       .setColor('#0099ff')
       .setTitle(`❝ ${quote}❞`)
       // .setURL('https://discord.js.org/')
@@ -18,21 +21,22 @@ module.exports.getEmbed = async (msg) => {
 
     // await msg.channel.send({ files: [zenLogo], embed: embed });
 
-    return { files: [zenLogo], embed: embed };
+    const result: EmbedResult = { files: [zenLogo], embed: embed };
+    return result;
   } catch (e) {
     console.log(e);
     msg.channel.send('An error occured. Please try again.');
-    return false;
+    return null;
   }
 };
 
-const getRandomQuote = async () => {
+const getRandomQuote = async (): Promise<Quote | null> => {
   try {
     const response = await axios.get(apiUrl);
 
     const { q: quote, a: author } = response.data[0];
 
-    const output = { quote, author };
+    const output: Quote = { quote, author };
 
     return output;
   } catch (error) {

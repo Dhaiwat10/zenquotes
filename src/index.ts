@@ -1,10 +1,11 @@
-const Discord = require('discord.js');
-const schedule = require('node-schedule');
+import Discord, { Client, Message } from 'discord.js';
+import schedule from 'node-schedule';
 require('dotenv').config();
 
-const { getEmbed } = require('./lib/quotes');
-const { sendMessageToAllGuilds, getWelcomeMessage } = require('./lib/util');
-const client = new Discord.Client();
+import { getEmbed } from './lib/quotes';
+import { sendMessageToAllGuilds, getWelcomeMessage } from './lib/util';
+
+const client: Client = new Discord.Client();
 
 client.on('ready', async () => {
   console.log('Bot is ready');
@@ -51,7 +52,7 @@ client.on('ready', async () => {
 
 client.login(process.env.BOT_TOKEN);
 
-client.on('message', async (msg) => {
+client.on('message', async (msg: Message) => {
   console.log('Message');
 
   if (msg.content === '!quote') {
@@ -67,7 +68,7 @@ client.on('message', async (msg) => {
   }
 });
 
-client.on('guildCreate', async (guild) => {
+client.on('guildCreate', async (guild: any) => {
   let channelID;
   const channels = guild.channels.cache;
 
