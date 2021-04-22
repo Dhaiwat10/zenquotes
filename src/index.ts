@@ -28,7 +28,6 @@ client.on('ready', async () => {
   schedule.scheduleJob(morningRule, async function () {
     try {
       const embed = await getEmbed();
-      const gm = ':sunrise_over_mountains:';
 
       sendMessageToAllGuilds(client, gm);
       sendMessageToAllGuilds(client, embed);
@@ -40,7 +39,6 @@ client.on('ready', async () => {
   schedule.scheduleJob(nightRule, async function () {
     try {
       const embed = await getEmbed();
-      const gn = ':night_with_stars:';
 
       sendMessageToAllGuilds(client, embed);
       sendMessageToAllGuilds(client, gn);
