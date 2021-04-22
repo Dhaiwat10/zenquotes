@@ -28,8 +28,6 @@ client.on('ready', async () => {
   schedule.scheduleJob(morningRule, async function () {
     try {
       const embed = await getEmbed();
-
-      sendMessageToAllGuilds(client, gm);
       sendMessageToAllGuilds(client, embed);
     } catch (err) {
       console.log('Could not send message to a (few) guild(s)!');
@@ -39,9 +37,7 @@ client.on('ready', async () => {
   schedule.scheduleJob(nightRule, async function () {
     try {
       const embed = await getEmbed();
-
       sendMessageToAllGuilds(client, embed);
-      sendMessageToAllGuilds(client, gn);
     } catch (err) {
       console.log('Could not send message to a (few) guild(s)!');
     }
