@@ -20,21 +20,7 @@ client.on('ready', async () => {
   morningRule.minute = 0;
   morningRule.tz = 'Asia/Kolkata';
 
-  const nightRule = new schedule.RecurrenceRule();
-  nightRule.hour = 23;
-  nightRule.minute = 0;
-  nightRule.tz = 'Asia/Kolkata';
-
   schedule.scheduleJob(morningRule, async function () {
-    try {
-      const embed = await getEmbed();
-      sendMessageToAllGuilds(client, embed);
-    } catch (err) {
-      console.log('Could not send message to a (few) guild(s)!');
-    }
-  });
-
-  schedule.scheduleJob(nightRule, async function () {
     try {
       const embed = await getEmbed();
       sendMessageToAllGuilds(client, embed);
